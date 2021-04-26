@@ -59,7 +59,7 @@ const Accounts = ({ className }: Props) => {
           onChange(value, chain);
         }}
       >
-        <Account text={text} value={value} showDerivedBalance chain={chain} />
+        <Account name={text} value={value} showDerivedBalance chain={chain} />
       </MenuItem>
     ));
     return [<SubHeader key={chain} chain={chain} />, items];
@@ -67,8 +67,8 @@ const Accounts = ({ className }: Props) => {
 
   const AccountSelected = () => {
     if (account) {
-      const text = (account.meta.name as string).toLocaleUpperCase();
-      return <Account text={text} value={value} />;
+      const name = (account.meta.name as string).toLocaleUpperCase();
+      return <Account name={name} value={value} />;
     }
     return null;
   };
@@ -90,7 +90,7 @@ const Accounts = ({ className }: Props) => {
       </FormControl>
       {derivedAccount && (
         <div className="formControl">
-          <Account text="Derived Account" value={derivedAccount} />
+          <Account name="Derived Account" value={derivedAccount} />
         </div>
       )}
     </Container>

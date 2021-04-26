@@ -23,14 +23,14 @@ import useBalance from '../hooks/useBalance';
 
 interface Props {
   value: string;
-  text: string;
+  name: string; // TODO: rn to "title" or "name"
   className?: string;
   chain?: string | undefined;
   showDerivedBalance?: boolean;
 }
 
-const Account = ({ className, text, value, chain, showDerivedBalance = false }: Props) => {
-  const [source, target] = useBalance(text, value, chain, true);
+const Account = ({ className, name, value, chain, showDerivedBalance = false }: Props) => {
+  const [source, target] = useBalance(name, value, chain, true);
 
   return (
     <Container className={className}>
@@ -38,7 +38,7 @@ const Account = ({ className, text, value, chain, showDerivedBalance = false }: 
         <div className="topAddress">
           <People />
           <div className="text">
-            <p>{text}</p>
+            <p>{name}</p>
           </div>
         </div>
         <div className="bottomAddress">
