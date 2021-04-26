@@ -17,7 +17,6 @@
 import { Container, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { encodeAddress } from '@polkadot/util-crypto';
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 
 import { useSourceTarget } from '../contexts/SourceTargetContextProvider';
 import useAccounts from '../hooks/useAccounts';
@@ -30,7 +29,7 @@ interface Props {
   className?: string;
 }
 
-const Accounts = ({ className }: Props) => {
+export const Accounts = ({ className }: Props) => {
   const [chains, setChains] = useState<Array<string>>([]);
   const { account, accounts, derivedAccount, setCurrentAccount } = useAccounts();
   const {
@@ -96,14 +95,3 @@ const Accounts = ({ className }: Props) => {
     </Container>
   );
 };
-
-export default styled(Accounts)`
-  margin: 40px 0;
-  .formControl {
-    width: 700px;
-  }
-  .chainSelect {
-    font-size: 18px;
-    color: blue !important;
-  }
-`;

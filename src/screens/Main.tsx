@@ -18,8 +18,7 @@ import { Container, Grid } from '@material-ui/core';
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
-import { BoxMain, BoxSidebar, BoxUI, MenuAction, MenuActionMockData } from '../components';
-import Accounts from '../components/Accounts';
+import { Accounts, BoxMain, BoxSidebar, BoxUI, MenuAction, MenuActionMockData } from '../components';
 import CustomCall from '../components/CustomCall';
 import DashboardCard from '../components/DashboardCard';
 import ExtensionAccountCheck from '../components/ExtensionAccountCheck';
