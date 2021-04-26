@@ -15,7 +15,6 @@
 // along with Parity Bridges UI.  If not, see <http://www.gnu.org/licenses/>.
 
 import Container from '@material-ui/core/Container';
-import People from '@material-ui/icons/People';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -23,20 +22,19 @@ import useBalance from '../hooks/useBalance';
 
 interface Props {
   value: string;
-  name: string; // TODO: rn to "title" or "name"
+  name?: string;
   className?: string;
   chain?: string | undefined;
   showDerivedBalance?: boolean;
 }
 
 const Account = ({ className, name, value, chain, showDerivedBalance = false }: Props) => {
-  const [source, target] = useBalance(name, value, chain, true);
+  const [source, target] = useBalance(value, chain, true);
 
   return (
     <Container className={className}>
       <div className="address">
         <div className="topAddress">
-          <People />
           <div className="text">
             <p>{name}</p>
           </div>

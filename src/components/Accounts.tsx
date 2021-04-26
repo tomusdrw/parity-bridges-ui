@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity Bridges UI.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Container, FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { encodeAddress } from '@polkadot/util-crypto';
 import React, { useEffect, useState } from 'react';
 
@@ -25,11 +25,7 @@ import getChainSS58 from '../util/getSS58';
 import Account from './Account';
 import SubHeader from './SubHeader';
 
-interface Props {
-  className?: string;
-}
-
-export const Accounts = ({ className }: Props) => {
+export const Accounts = () => {
   const [chains, setChains] = useState<Array<string>>([]);
   const { account, accounts, derivedAccount, setCurrentAccount } = useAccounts();
   const {
@@ -73,25 +69,14 @@ export const Accounts = ({ className }: Props) => {
   };
 
   return (
-    <Container className={className}>
-      <InputLabel id="demo-simple-select-label">{sourceChain} Account</InputLabel>
-      <FormControl variant="outlined" className="formControl">
-        <Select
-          value={value}
-          name="name"
-          inputProps={{
-            id: 'name-native-error'
-          }}
-          renderValue={(): React.ReactNode => <AccountSelected />}
-        >
+    <>
+      <FormControl variant="outlined" className="formControl" fullWidth>
+        <InputLabel shrink={false}>From: {sourceChain} Account</InputLabel>
+        <Select value={value} renderValue={(): React.ReactNode => <AccountSelected />}>
           {chains.map((chain) => renderAccounts(chain))}
         </Select>
       </FormControl>
-      {derivedAccount && (
-        <div className="formControl">
-          <Account name="Derived Account" value={derivedAccount} />
-        </div>
-      )}
-    </Container>
+      {derivedAccount && <Account value={derivedAccount} />}
+    </>
   );
 };

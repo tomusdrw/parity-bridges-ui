@@ -41,7 +41,7 @@ const initValues = {
   free: new BN(ZERO) as Balance
 };
 
-const useBalance = (name: string, address: string, chain: string | undefined, providedSi: boolean = false): State[] => {
+const useBalance = (address: string, chain: string | undefined, providedSi: boolean = false): State[] => {
   const { dispatchMessage } = useUpdateMessageContext();
   const [sourceState, setSourceState] = useState<State>(initValues);
   const [targetState, setTargetState] = useState<State>(initValues);
@@ -98,7 +98,7 @@ const useBalance = (name: string, address: string, chain: string | undefined, pr
       unsubscribeSource && (await unsubscribeSource)();
       unsubscribeTarget && (await unsubscribeTarget)();
     };
-  }, [name, address, chain, sourceChain, targetChain, sourceApi, targetApi, providedSi, dispatchMessage]);
+  }, [address, chain, sourceChain, targetChain, sourceApi, targetApi, providedSi, dispatchMessage]);
 
   return [sourceState, targetState];
 };
