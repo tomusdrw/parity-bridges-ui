@@ -2,7 +2,7 @@
 
 The goal of the UI is to provide the users a convenient way of interacting with the Bridge - querying its state and sending transactions.
 
-| 🚀  | Live version at [//paritytech.github.io/parity-bridges-ui](https://paritytech.github.io/parity-bridges-ui) |
+| 🚀  | Live version at [//tomusdrw.github.io/parity-bridges-ui](https://tomusdrw.github.io/parity-bridges-ui) |
 | --- | :--------------------------------------------------------------------------------------------------------- |
 
 ## Configuring custom Substrate providers / chains
