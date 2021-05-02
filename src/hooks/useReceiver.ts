@@ -25,7 +25,8 @@ export default function useReceiver() {
   const { dispatchTransaction } = useUpdateTransactionContext();
 
   const {
-    targetChainDetails: { targetChain }
+    targetChainDetails: { targetChain },
+    sourceChainDetails: { sourceChain }
   } = useSourceTarget();
 
   const setReceiver = (address: string | null) =>
@@ -37,7 +38,8 @@ export default function useReceiver() {
   const validateAccount = (receiver: string) => {
     try {
       const { address, formatFound } = getReceiverAddress({
-        chain: targetChain,
+        targetChain,
+        sourceChain,
         receiverAddress: receiver
       });
 
