@@ -47,7 +47,7 @@ jobs:
     - run: yarn downloadCustomTypes
     - run: yarn build
       env:
-        PUBLIC_URL: 'https://paritytech.github.io/parity-bridges-ui'
+        PUBLIC_URL: 'https://todr.me/parity-bridges-ui'
     - name: Deploy to GitHub Pages
       if: success() && github.ref == 'refs/heads/master'
       uses: crazy-max/ghaction-github-pages@v2
